@@ -266,117 +266,117 @@ def test_Boolean():
 
 
 def test_Vector():
-    assert Vector([1, 2]) == Vector([1, 2])
-    assert Vector([1, 2]) != Vector([1, 3])
-    assert Vector([1, 2]) == [1, 2]
-    assert Vector([1, 2]) + Vector([1, 2]) == Vector([2, 4])
-    assert Vector([1, 2]) + Vector([1, 2]) == [2, 4]
-    assert Vector([1, 2]) + [1, 2] == Vector([2, 4])
-    assert Vector([1, 2]) + [1, 2] == [2, 4]
-    assert [1, 2] + Vector([1, 2]) == Vector([2, 4])
-    assert [1, 2] + Vector([1, 2]) == [2, 4]
-    assert Vector([1, 2]) + 1 == Vector([2, 3])
-    assert Vector([1, 2]) + 1 == [2, 3]
-    assert 1 + Vector([1, 2]) == Vector([2, 3])
-    assert 1 + Vector([1, 2]) == [2, 3]
-    assert Vector([1, 2]) + 1.0 == Vector([2.0, 3.0])
-    assert Vector([1, 2]) + 1.0 == [2.0, 3.0]
-    assert 1.0 + Vector([1, 2]) == Vector([2.0, 3.0])
-    assert 1.0 + Vector([1, 2]) == [2.0, 3.0]
-    assert Vector([1, 2, 3]) * Vector([1, 2, 3]) == Vector([1, 4, 9])
-    assert Vector([1, 2, 3]) * Vector([1, 2, 3]) == [1, 4, 9]
-    assert Vector([1, 2, 3]) * [1, 2, 3] == Vector([1, 4, 9])
-    assert Vector([1, 2, 3]) * [1, 2, 3] == [1, 4, 9]
-    assert [1, 2, 3] * Vector([1, 2, 3]) == Vector([1, 4, 9])
-    assert [1, 2, 3] * Vector([1, 2, 3]) == [1, 4, 9]
-    assert Vector([1, 2, 3]) * 1 == Vector([1, 2, 3])
-    assert Vector([1, 2, 3]) * 1 == [1, 2, 3]
-    assert 1 * Vector([1, 2, 3]) == Vector([1, 2, 3])
-    assert 1 * Vector([1, 2, 3]) == [1, 2, 3]
-    assert Vector([1, 2, 3]) * 1.0 == Vector([1.0, 2.0, 3.0])
-    assert Vector([1, 2, 3]) * 1.0 == [1.0, 2.0, 3.0]
-    assert 1.0 * Vector([1, 2, 3]) == Vector([1.0, 2.0, 3.0])
-    assert 1.0 * Vector([1, 2, 3]) == [1.0, 2.0, 3.0]
-    assert Vector([1, 2, 3]) - Vector([1, 2, 3]) == Vector([0, 0, 0])
-    assert Vector([1, 2, 3]) - Vector([1, 2, 3]) == [0, 0, 0]
-    assert Vector([1, 2, 3]) - [1, 2, 3] == Vector([0, 0, 0])
-    assert Vector([1, 2, 3]) - [1, 2, 3] == [0, 0, 0]
-    assert [1, 2, 3] - Vector([1, 2, 3]) == Vector([0, 0, 0])
-    assert [1, 2, 3] - Vector([1, 2, 3]) == [0, 0, 0]
-    assert Vector([1, 2, 3]) - 1 == Vector([0, 1, 2])
-    assert Vector([1, 2, 3]) - 1 == [0, 1, 2]
-    assert 1 - Vector([1, 2, 3]) == Vector([0, -1, -2])
-    assert 1 - Vector([1, 2, 3]) == [0, -1, -2]
-    assert Vector([1, 2, 3]) - 1.0 == Vector([0.0, 1.0, 2.0])
-    assert Vector([1, 2, 3]) - 1.0 == [0.0, 1.0, 2.0]
-    assert 1.0 - Vector([1, 2, 3]) == Vector([0.0, -1.0, -2.0])
-    assert 1.0 - Vector([1, 2, 3]) == [0.0, -1.0, -2.0]
-    assert Vector([1, 2, 3]) / Vector([1, 2, 3]) == Vector([1, 1, 1])
-    assert Vector([1, 2, 3]) / Vector([1, 2, 3]) == [1, 1, 1]
-    assert Vector([1, 2, 3]) / [1, 2, 3] == Vector([1, 1, 1])
-    assert Vector([1, 2, 3]) / [1, 2, 3] == [1, 1, 1]
-    assert [1, 2, 3] / Vector([1, 2, 3]) == Vector([1, 1, 1])
-    assert [1, 2, 3] / Vector([1, 2, 3]) == [1, 1, 1]
-    assert Vector([2, 4, 6]) / 2 == Vector([1.0, 2.0, 3.0])
-    assert Vector([2, 4, 6]) / 2 == [1.0, 2.0, 3.0]
+    assert (Vector([1, 2]) == Vector([1, 2])).all() == True
+    assert (Vector([1, 2]) != Vector([1, 3])).all() == False
+    assert (Vector([1, 2]) == [1, 2]).all() == True
+    assert (Vector([1, 2]) + Vector([1, 2]) == Vector([2, 4])).all() == True
+    assert (Vector([1, 2]) + Vector([1, 2]) == [2, 4]).all() == True
+    assert (Vector([1, 2]) + [1, 2] == Vector([2, 4])).all() == True
+    assert (Vector([1, 2]) + [1, 2] == [2, 4]).all() == True
+    assert ([1, 2] + Vector([1, 2]) == Vector([2, 4])).all() == True
+    assert ([1, 2] + Vector([1, 2]) == [2, 4]).all() == True
+    assert (Vector([1, 2]) + 1 == Vector([2, 3])).all() == True
+    assert (Vector([1, 2]) + 1 == [2, 3]).all() == True
+    assert (1 + Vector([1, 2]) == Vector([2, 3])).all() == True
+    assert (1 + Vector([1, 2]) == [2, 3]).all() == True
+    assert (Vector([1, 2]) + 1.0 == Vector([2.0, 3.0])).all() == True
+    assert (Vector([1, 2]) + 1.0 == [2.0, 3.0]).all() == True
+    assert (1.0 + Vector([1, 2]) == Vector([2.0, 3.0])).all() == True
+    assert (1.0 + Vector([1, 2]) == [2.0, 3.0]).all() == True
+    assert (Vector([1, 2, 3]) * Vector([1, 2, 3]) == Vector([1, 4, 9])).all() == True
+    assert (Vector([1, 2, 3]) * Vector([1, 2, 3]) == [1, 4, 9]).all() == True
+    assert (Vector([1, 2, 3]) * [1, 2, 3] == Vector([1, 4, 9])).all() == True
+    assert (Vector([1, 2, 3]) * [1, 2, 3] == [1, 4, 9]).all() == True
+    assert ([1, 2, 3] * Vector([1, 2, 3]) == Vector([1, 4, 9])).all() == True
+    assert ([1, 2, 3] * Vector([1, 2, 3]) == [1, 4, 9]).all() == True
+    assert (Vector([1, 2, 3]) * 1 == Vector([1, 2, 3])).all() == True
+    assert (Vector([1, 2, 3]) * 1 == [1, 2, 3]).all() == True
+    assert (1 * Vector([1, 2, 3]) == Vector([1, 2, 3])).all() == True
+    assert (1 * Vector([1, 2, 3]) == [1, 2, 3]).all() == True
+    assert (Vector([1, 2, 3]) * 1.0 == Vector([1.0, 2.0, 3.0])).all() == True
+    assert (Vector([1, 2, 3]) * 1.0 == [1.0, 2.0, 3.0]).all() == True
+    assert (1.0 * Vector([1, 2, 3]) == Vector([1.0, 2.0, 3.0])).all() == True
+    assert (1.0 * Vector([1, 2, 3]) == [1.0, 2.0, 3.0]).all() == True
+    assert (Vector([1, 2, 3]) - Vector([1, 2, 3]) == Vector([0, 0, 0])).all() == True
+    assert (Vector([1, 2, 3]) - Vector([1, 2, 3]) == [0, 0, 0]).all() == True
+    assert (Vector([1, 2, 3]) - [1, 2, 3] == Vector([0, 0, 0])).all() == True
+    assert (Vector([1, 2, 3]) - [1, 2, 3] == [0, 0, 0]).all() == True
+    assert ([1, 2, 3] - Vector([1, 2, 3]) == Vector([0, 0, 0])).all() == True
+    assert ([1, 2, 3] - Vector([1, 2, 3]) == [0, 0, 0]).all() == True
+    assert (Vector([1, 2, 3]) - 1 == Vector([0, 1, 2])).all() == True
+    assert (Vector([1, 2, 3]) - 1 == [0, 1, 2]).all() == True
+    assert (1 - Vector([1, 2, 3]) == Vector([0, -1, -2])).all() == True
+    assert (1 - Vector([1, 2, 3]) == [0, -1, -2]).all() == True
+    assert (Vector([1, 2, 3]) - 1.0 == Vector([0.0, 1.0, 2.0])).all() == True
+    assert (Vector([1, 2, 3]) - 1.0 == [0.0, 1.0, 2.0]).all() == True
+    assert (1.0 - Vector([1, 2, 3]) == Vector([0.0, -1.0, -2.0])).all() == True
+    assert (1.0 - Vector([1, 2, 3]) == [0.0, -1.0, -2.0]).all() == True
+    assert (Vector([1, 2, 3]) / Vector([1, 2, 3]) == Vector([1, 1, 1])).all() == True
+    assert (Vector([1, 2, 3]) / Vector([1, 2, 3]) == [1, 1, 1]).all() == True
+    assert (Vector([1, 2, 3]) / [1, 2, 3] == Vector([1, 1, 1])).all() == True
+    assert (Vector([1, 2, 3]) / [1, 2, 3] == [1, 1, 1]).all() == True
+    assert ([1, 2, 3] / Vector([1, 2, 3]) == Vector([1, 1, 1])).all() == True
+    assert ([1, 2, 3] / Vector([1, 2, 3]) == [1, 1, 1]).all() == True
+    assert (Vector([2, 4, 6]) / 2 == Vector([1.0, 2.0, 3.0])).all() == True
+    assert (Vector([2, 4, 6]) / 2 == [1.0, 2.0, 3.0]).all() == True
     # assert 2 / Vector([2, 4, 6]) == Vector([1.0, 0.5, 0.3333333333333333])
-    assert (Vector([2, 4, 6]) < Vector([2, 4, 8])) == [False, False, True]
-    assert (Vector([2, 4, 6]) < Vector([2, 4, 8])) == Vector([False, False, True])
-    assert (Vector([2, 4, 6]) < [2, 4, 8]) == [False, False, True]
-    assert (Vector([2, 4, 6]) < [2, 4, 8]) == Vector([False, False, True])
-    assert ([2, 4, 6] < Vector([2, 4, 8])) == [False, False, True]
-    assert ([2, 4, 6] < Vector([2, 4, 8])) == Vector([False, False, True])
-    assert (Vector([2, 4, 6]) < 2) == [False, False, False]
-    assert (Vector([2, 4, 6]) < 2) == Vector([False, False, False])
-    assert (2 < Vector([2, 4, 6])) == [False, True, True]
-    assert (2 < Vector([2, 4, 6])) == Vector([False, True, True])
-    assert (Vector([2, 4, 6]) < 2.0) == [False, False, False]
-    assert (Vector([2, 4, 6]) < 2.0) == Vector([False, False, False])
-    assert (2.0 < Vector([2, 4, 6])) == [False, True, True]
-    assert (2.0 < Vector([2, 4, 6])) == Vector([False, True, True])
-    assert (Vector([2, 4, 6]) <= Vector([2, 4, 8])) == [True, True, True]
-    assert (Vector([2, 4, 6]) <= Vector([2, 4, 8])) == Vector([True, True, True])
-    assert (Vector([2, 4, 6]) <= [2, 4, 8]) == [True, True, True]
-    assert (Vector([2, 4, 6]) <= [2, 4, 8]) == Vector([True, True, True])
-    assert ([2, 4, 6] <= Vector([2, 4, 8])) == [True, True, True]
-    assert ([2, 4, 6] <= Vector([2, 4, 8])) == Vector([True, True, True])
-    assert (Vector([2, 4, 6]) <= 2) == [True, False, False]
-    assert (Vector([2, 4, 6]) <= 2) == Vector([True, False, False])
-    assert (2 <= Vector([2, 4, 6])) == [True, True, True]
-    assert (2 <= Vector([2, 4, 6])) == Vector([True, True, True])
-    assert (Vector([2, 4, 6]) <= 2.0) == [True, False, False]
-    assert (Vector([2, 4, 6]) <= 2.0) == Vector([True, False, False])
-    assert (2.0 <= Vector([2, 4, 6])) == [True, True, True]
-    assert (2.0 <= Vector([2, 4, 6])) == Vector([True, True, True])
-    assert (Vector([2, 4, 6]) > Vector([2, 4, 8])) == [False, False, False]
-    assert (Vector([2, 4, 6]) > Vector([2, 4, 8])) == Vector([False, False, False])
-    assert (Vector([2, 4, 6]) > [2, 4, 8]) == [False, False, False]
-    assert (Vector([2, 4, 6]) > [2, 4, 8]) == Vector([False, False, False])
-    assert ([2, 4, 6] > Vector([2, 4, 8])) == [False, False, False]
-    assert ([2, 4, 6] > Vector([2, 4, 8])) == Vector([False, False, False])
-    assert (Vector([2, 4, 6]) > 2) == [False, True, True]
-    assert (Vector([2, 4, 6]) > 2) == Vector([False, True, True])
-    assert (2 > Vector([2, 4, 6])) == [False, False, False]
-    assert (2 > Vector([2, 4, 6])) == Vector([False, False, False])
-    assert (Vector([2, 4, 6]) > 2.0) == [False, True, True]
-    assert (Vector([2, 4, 6]) > 2.0) == Vector([False, True, True])
-    assert (2.0 > Vector([2, 4, 6])) == [False, False, False]
-    assert (2.0 > Vector([2, 4, 6])) == Vector([False, False, False])
-    assert (Vector([2, 4, 6]) >= Vector([2, 4, 8])) == [True, True, False]
-    assert (Vector([2, 4, 6]) >= Vector([2, 4, 8])) == Vector([True, True, False])
-    assert (Vector([2, 4, 6]) >= [2, 4, 8]) == [True, True, False]
-    assert (Vector([2, 4, 6]) >= [2, 4, 8]) == Vector([True, True, False])
-    assert ([2, 4, 6] >= Vector([2, 4, 8])) == [True, True, False]
-    assert ([2, 4, 6] >= Vector([2, 4, 8])) == Vector([True, True, False])
-    assert (Vector([2, 4, 6]) >= 2) == [True, True, True]
-    assert (Vector([2, 4, 6]) >= 2) == Vector([True, True, True])
-    assert (2 >= Vector([2, 4, 6])) == [True, False, False]
-    assert (2 >= Vector([2, 4, 6])) == Vector([True, False, False])
-    assert (Vector([2, 4, 6]) >= 2.0) == [True, True, True]
-    assert (Vector([2, 4, 6]) >= 2.0) == Vector([True, True, True])
-    assert (2.0 >= Vector([2, 4, 6])) == [True, False, False]
-    assert (2.0 >= Vector([2, 4, 6])) == Vector([True, False, False])
-    assert (Real(2.0) >= Vector([2, 4, 6])) == Vector([True, False, False])
+    assert ((Vector([2, 4, 6]) < Vector([2, 4, 8])) == [False, False, True]).all() == True
+    assert ((Vector([2, 4, 6]) < Vector([2, 4, 8])) == Vector([False, False, True])).all() == True
+    assert ((Vector([2, 4, 6]) < [2, 4, 8]) == [False, False, True]).all() == True
+    assert ((Vector([2, 4, 6]) < [2, 4, 8]) == Vector([False, False, True])).all() == True
+    assert (([2, 4, 6] < Vector([2, 4, 8])) == [False, False, True]).all() == True
+    assert (([2, 4, 6] < Vector([2, 4, 8])) == Vector([False, False, True])).all() == True
+    assert ((Vector([2, 4, 6]) < 2) == [False, False, False]).all() == True
+    assert ((Vector([2, 4, 6]) < 2) == Vector([False, False, False])).all() == True
+    assert ((2 < Vector([2, 4, 6])) == [False, True, True]).all() == True
+    assert ((2 < Vector([2, 4, 6])) == Vector([False, True, True])).all() == True
+    assert ((Vector([2, 4, 6]) < 2.0) == [False, False, False]).all() == True
+    assert ((Vector([2, 4, 6]) < 2.0) == Vector([False, False, False])).all() == True
+    assert ((2.0 < Vector([2, 4, 6])) == [False, True, True]).all() == True
+    assert ((2.0 < Vector([2, 4, 6])) == Vector([False, True, True])).all() == True
+    assert ((Vector([2, 4, 6]) <= Vector([2, 4, 8])) == [True, True, True]).all() == True
+    assert ((Vector([2, 4, 6]) <= Vector([2, 4, 8])) == Vector([True, True, True])).all() == True
+    assert ((Vector([2, 4, 6]) <= [2, 4, 8]) == [True, True, True]).all() == True
+    assert ((Vector([2, 4, 6]) <= [2, 4, 8]) == Vector([True, True, True])).all() == True
+    assert (([2, 4, 6] <= Vector([2, 4, 8])) == [True, True, True]).all() == True
+    assert (([2, 4, 6] <= Vector([2, 4, 8])) == Vector([True, True, True])).all() == True
+    assert ((Vector([2, 4, 6]) <= 2) == [True, False, False]).all() == True
+    assert ((Vector([2, 4, 6]) <= 2) == Vector([True, False, False])).all() == True
+    assert ((2 <= Vector([2, 4, 6])) == [True, True, True]).all() == True
+    assert ((2 <= Vector([2, 4, 6])) == Vector([True, True, True])).all() == True
+    assert ((Vector([2, 4, 6]) <= 2.0) == [True, False, False]).all() == True
+    assert ((Vector([2, 4, 6]) <= 2.0) == Vector([True, False, False])).all() == True
+    assert ((2.0 <= Vector([2, 4, 6])) == [True, True, True]).all() == True
+    assert ((2.0 <= Vector([2, 4, 6])) == Vector([True, True, True])).all() == True
+    assert ((Vector([2, 4, 6]) > Vector([2, 4, 8])) == [False, False, False]).all() == True
+    assert ((Vector([2, 4, 6]) > Vector([2, 4, 8])) == Vector([False, False, False])).all() == True
+    assert ((Vector([2, 4, 6]) > [2, 4, 8]) == [False, False, False]).all() == True
+    assert ((Vector([2, 4, 6]) > [2, 4, 8]) == Vector([False, False, False])).all() == True
+    assert (([2, 4, 6] > Vector([2, 4, 8])) == [False, False, False]).all() == True
+    assert (([2, 4, 6] > Vector([2, 4, 8])) == Vector([False, False, False])).all() == True
+    assert ((Vector([2, 4, 6]) > 2) == [False, True, True]).all() == True
+    assert ((Vector([2, 4, 6]) > 2) == Vector([False, True, True])).all() == True
+    assert ((2 > Vector([2, 4, 6])) == [False, False, False]).all() == True
+    assert ((2 > Vector([2, 4, 6])) == Vector([False, False, False])).all() == True
+    assert ((Vector([2, 4, 6]) > 2.0) == [False, True, True]).all() == True
+    assert ((Vector([2, 4, 6]) > 2.0) == Vector([False, True, True])).all() == True
+    assert ((2.0 > Vector([2, 4, 6])) == [False, False, False]).all() == True
+    assert ((2.0 > Vector([2, 4, 6])) == Vector([False, False, False])).all() == True
+    assert ((Vector([2, 4, 6]) >= Vector([2, 4, 8])) == [True, True, False]).all() == True
+    assert ((Vector([2, 4, 6]) >= Vector([2, 4, 8])) == Vector([True, True, False])).all() == True
+    assert ((Vector([2, 4, 6]) >= [2, 4, 8]) == [True, True, False]).all() == True
+    assert ((Vector([2, 4, 6]) >= [2, 4, 8]) == Vector([True, True, False])).all() == True
+    assert (([2, 4, 6] >= Vector([2, 4, 8])) == [True, True, False]).all() == True
+    assert (([2, 4, 6] >= Vector([2, 4, 8])) == Vector([True, True, False])).all() == True
+    assert ((Vector([2, 4, 6]) >= 2) == [True, True, True]).all() == True
+    assert ((Vector([2, 4, 6]) >= 2) == Vector([True, True, True])).all() == True
+    assert ((2 >= Vector([2, 4, 6])) == [True, False, False]).all() == True
+    assert ((2 >= Vector([2, 4, 6])) == Vector([True, False, False])).all() == True
+    assert ((Vector([2, 4, 6]) >= 2.0) == [True, True, True]).all() == True
+    assert ((Vector([2, 4, 6]) >= 2.0) == Vector([True, True, True])).all() == True
+    assert ((2.0 >= Vector([2, 4, 6])) == [True, False, False]).all() == True
+    assert ((2.0 >= Vector([2, 4, 6])) == Vector([True, False, False])).all() == True
+    assert ((Real(2.0) >= Vector([2, 4, 6])) == Vector([True, False, False])).all() == True
 
 
 # Operators

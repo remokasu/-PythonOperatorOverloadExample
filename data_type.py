@@ -974,12 +974,17 @@ class Vector(Number):
 
     def __eq__(self, other):
         self, other = self.cast(other)
-        if not isinstance(other, Vector):
-            return False
-        return np.array_equal(self.value, other.value)
+        if isinstance(other, (Vector, Number)):
+            return Vector(self.value == other.value)
+        else:
+            return Vector(self.value == other)
 
     def __ne__(self, other):
-        return not self.__eq__(other)
+        self, other = self.cast(other)
+        if isinstance(other, (Vector, Number)):
+            return Vector(self.value != other.value)
+        else:
+            return Vector(self.value != other)
 
     def __ge__(self, other):
         self, other = self.cast(other)
@@ -1036,8 +1041,69 @@ class Vector(Number):
     def __reversed__(self):
         return reversed(self.value)
 
+    def all(self):
+        return Boolean(np.all(self.value))
+
+    def dot(self, other):
+        self, other = self.cast(other)
+        return Vector(np.dot(self.value, other.value))
+
+    def eig(self):
+        return np.linalg.eig(self.value)
+
+    @property
+    def shape(self):
+        return self.value.shape
+
+    @property
+    def rank(self):
+        return np.linalg.matrix_rank(self.value)
+
+    @property
+    def norm(self):
+        return Real(np.linalg.norm(self.value))
+
+    @property
+    def T(self):
+        return Vector(self.value.T)
+
 def vec(value):
     return Vector(value)
+
+def dot(a: Vector, b: Vector) -> Vector:
+    return a.dot(b)
+
+
+class Tuple(Generic):
+    def __init__(self, value: list | tuple):
+        self.value = tuple(value)
+
+    def __repr__(self):
+        return f"Tuple({self.value})"
+
+    def __getitem__(self, item):
+        return self.value[item]
+
+    def __setitem__(self, key, value):
+        self.value[key] = value
+
+    def __len__(self):
+        return len(self.value)
+
+    def __iter__(self):
+        return iter(self.value)
+
+    def __next__(self):
+        return next(self.value)
+
+    def __contains__(self, item):
+        return item in self.value
+
+    def __index__(self):
+        return self.value.__index__()
+
+    def __reversed__(self):
+        return reversed(self.value)
 
 
 class Undefined:
@@ -1054,3 +1120,22 @@ class Operator:
 
     def __repr__(self):
         return f"Operator({self.symbol})"
+
+
+def autotype(value: int | float | bool | complex | str | list):
+    if isinstance(value, int) or is_np_int(value):
+        return Integer(value)
+    elif isinstance(value, float) or is_np_float(value):
+        return Real(value)
+    elif isinstance(value, complex) or is_np_complex(value):
+        return Complex(value)
+    elif isinstance(value, bool) or is_np_bool(value):
+        return Boolean(value)
+    elif isinstance(value, str):
+        return String(value)
+    elif isinstance(value, list):
+        return Vector(value)
+    # elif isinstance(value, tuple):
+    #     return Tuple(value)
+    else:
+        raise TypeError(f"Unsupported type: {type(value)}")
